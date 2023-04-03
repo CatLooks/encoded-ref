@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+  <body>
+    <p>URL: <span id="url">???</span></p>
+    <input type="text" id="field" width="32"/>
+    <button onclick="gen();">Generate</button>
+    <noscript style="font-size:48px;">JS is disabled.</noscript>
+    <script>
+      function gen() {
+        let text = document.getElementById('field').value;
+        let res = 'catlooks.github.io/encoded-ref/?';
+        for (let i = 0; i < text.length; i++) {
+          let j = text.charCodeAt(i);
+          res += (j < 16 ? '0' : '') + j.toString(16);
+        };
+        document.getElementById('url').innerHTML = res;
+      };
+    </script>
+  </body>
+</html>
