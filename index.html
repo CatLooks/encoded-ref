@@ -3,10 +3,12 @@
   <body>
     <noscript style="font-size:48px;">._.</noscript>
     <script>
+      if (window.location.search === '?')
+        throw null;
       let link = window.location.search.substr(1);
       let dest = '';
       for (let i = 0; i < link.length; i += 2)
-        dest += parseInt(link.slice(i, i + 2), 16);
+        dest += String.fromCharCode(parseInt(link.slice(i, i + 2), 16));
       window.location.href = dest;
     </script>
   </body>
